@@ -17,6 +17,8 @@ build_script:
     - "echo #define BUILD %APPVEYOR_BUILD_NUMBER% > build_number.h"
     - qmake AurebeshTranslator.pro -r -spec win32-g++
     - mingw32-make
+    - md ..\%RELEASE_PATH%
+    - copy release\AurebeshTranslator.exe ..\%RELEASE_PATH%
 
     - cd ..\Tests\Test
     # we need to modify that to make it running on AppVeyor
