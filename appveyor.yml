@@ -45,6 +45,8 @@ build_script:
     # important: this dll needs to be updated when a new version of Qt is used!
     # search for it in the mingw* folder of your local installation of Qt
     - copy "C:\projects\aurebeshtranslator\appveyor\release\libstdc++-6.dll" . /y
+    - dir
+    - dir .\release
     -  .\release\Test.exe -xunitxml
 
 on_finish:
