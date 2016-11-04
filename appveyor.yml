@@ -1,6 +1,12 @@
+os: unstable
+skip_tags: true
+
 install:
-    - set QTDIR=C:\Qt\5.7\mingw53_32
-    - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
+#  - set QTDIR=C:\Qt\5.6\mingw49_32
+  - set QTDIR=C:\Qt\5.7\mingw53_32
+  - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
+  - set RELEASE_PATH=appveyor\release
+
 build_script:
     - cd .\AurebeshTranslator
     - dir
@@ -20,3 +26,8 @@ build_script:
     - qmake Test.pro
     - mingw32-make
     -  .\release\Test.exe
+
+artifacts:
+  # pushing entire folder as a zip archive
+  - path: appveyor\release
+    name: AurebeshTranslator
