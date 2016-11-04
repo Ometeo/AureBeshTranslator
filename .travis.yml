@@ -10,5 +10,9 @@ script:
     - qmake -project
     - cd AurebeshTranslator
     - qmake AurebeshTranslator.pro
-    - ls
+    - make
+    - cd ..
+    - cd Tests/Tests
+    - qmake -project "QT += testlib"
+    - qmake
     - make

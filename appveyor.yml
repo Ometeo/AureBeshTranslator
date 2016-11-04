@@ -4,3 +4,7 @@ install:
 build_script:
     - qmake AurebeshTranslator\AurebeshTranslator.pro
     - mingw32-make
+    - cd Tests\Test
+    - qmake -project "QT += testlib"
+    - qmake
+    - mingw32-make
