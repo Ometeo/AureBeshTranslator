@@ -12,7 +12,7 @@ script:
     - qmake AurebeshTranslator.pro
     - make
     - cd ..
-    - cd Tests/Tests
+    - cd Tests/Test
     - qmake -project "QT += testlib"
     - qmake
     - make

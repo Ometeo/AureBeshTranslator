@@ -2,9 +2,10 @@ install:
     - set QTDIR=C:\Qt\5.7\mingw53_32
     - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
 build_script:
-    - qmake AurebeshTranslator\AurebeshTranslator.pro
+    - cd .\AurebeshTranslator
+    - qmake AurebeshTranslator.pro
     - mingw32-make
-    - cd Tests\Test
+    - cd ..\Tests\Test
     - qmake -project "QT += testlib"
-    - qmake
+    - qmake 
     - mingw32-make
