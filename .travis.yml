@@ -16,4 +16,5 @@ script:
     - qmake -project "QT += testlib"
     - qmake
     - make
+    - ls
     - cd ./release

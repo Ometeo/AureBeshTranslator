@@ -4,11 +4,19 @@ install:
 build_script:
     - cd .\AurebeshTranslator
     - dir
-    - qmake AurebeshTranslator.pro
-    - mingw32-make
-    - cd ..\Tests\Test
-    - qmake -project "QT += testlib"
-    - qmake 
+    # we need to modify that to make it running on AppVeyor
+    - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" AurebeshTranslator.pro
+    - "echo #define RELEASE \"AppVeyor\" > release.h"
+    # setting the build number in the header file
+    - "echo #define BUILD %APPVEYOR_BUILD_NUMBER% > build_number.h"
+    - qmake AurebeshTranslator.pro -r -spec win32-g++
     - mingw32-make
 
+    - cd ..\Tests\Test
+    # we need to modify that to make it running on AppVeyor
+    - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" Test.pro
+    - "echo #define RELEASE \"AppVeyor\" > release.h"
+    - qmake -project "QT += testlib"
+    - qmake Test.pro
+    - mingw32-make
     -  .\release\Test.exe
