@@ -40,11 +40,11 @@ build_script:
     - dir
     - cd release
     - windeployqt --release Test.exe
-    - copy ..\..\appveyor\release\libwinpthread-1.dll . /y
+    - copy C:\projects\aurebeshtranslator\appveyor\release\libwinpthread-1.dll . /y
     # this dll didn't work when released by windeployqt
     # important: this dll needs to be updated when a new version of Qt is used!
     # search for it in the mingw* folder of your local installation of Qt
-    - copy "..\..\appveyor\release\libstdc++-6.dll" . /y
+    - copy "C:\projects\aurebeshtranslator\appveyor\release\libstdc++-6.dll" . /y
     -  .\release\Test.exe -xunitxml
 
 on_finish:
