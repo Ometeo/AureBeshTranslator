@@ -23,6 +23,12 @@ build_script:
     # fetching dependencies of QT app
     # http://doc.qt.io/qt-5/windows-deployment.html
     - windeployqt --release AurebeshTranslator.exe
+    # this dll was missed by windeployqt
+    - copy ..\libwinpthread-1.dll . /y
+    # this dll didn't work when released by windeployqt
+    # important: this dll needs to be updated when a new version of Qt is used!
+    # search for it in the mingw* folder of your local installation of Qt
+    - copy "..\libstdc++-6.dll" . /y
 
     - cd ..\..\Tests\Test
     # we need to modify that to make it running on AppVeyor
