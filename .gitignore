@@ -8,6 +8,9 @@
 *.lai
 *.so
 *.dll
+
+!libstdc++-6.dll
+!libwinpthread-1.dll
 *.dylib
 
 # Qt-es
