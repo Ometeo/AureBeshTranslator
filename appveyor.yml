@@ -38,7 +38,15 @@ build_script:
     - qmake Test.pro
     - mingw32-make
     - dir
-    #-  .\release\Test.exe
+    - cd release
+    - windeployqt --release Test.exe
+    - copy ..\..\%RELEASE_PATH%\libwinpthread-1.dll . /y
+    # this dll didn't work when released by windeployqt
+    # important: this dll needs to be updated when a new version of Qt is used!
+    # search for it in the mingw* folder of your local installation of Qt
+    - copy "..\..\%RELEASE_PATH%\libstdc++-6.dll" . /y
+    -  .\release\Test.exe -xunitxml
+
 
 artifacts:
   # pushing entire folder as a zip archive
