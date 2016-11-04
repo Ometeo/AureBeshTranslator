@@ -9,6 +9,5 @@ build_script:
     - qmake -project "QT += testlib"
     - qmake 
     - mingw32-make
-    - dir
-    - dir .\debug
-    - dir .\release
+
+    -  .\release\Test.exe
