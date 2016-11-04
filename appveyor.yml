@@ -19,7 +19,10 @@ build_script:
     - mingw32-make
     - md ..\%RELEASE_PATH%
     - copy release\AurebeshTranslator.exe ..\%RELEASE_PATH%
-    - dir ..\appveyor
+    - cd ..\%RELEASE_PATH%
+    # fetching dependencies of QT app
+    # http://doc.qt.io/qt-5/windows-deployment.html
+    - windeployqt --release QOwnNotes.exe
 
     - cd ..\Tests\Test
     # we need to modify that to make it running on AppVeyor
