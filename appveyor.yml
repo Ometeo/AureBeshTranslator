@@ -3,6 +3,7 @@ install:
     - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
 build_script:
     - cd .\AurebeshTranslator
+    - dir
     - qmake AurebeshTranslator.pro
     - mingw32-make
     - cd ..\Tests\Test
