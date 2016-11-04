@@ -24,7 +24,7 @@ build_script:
     # http://doc.qt.io/qt-5/windows-deployment.html
     - windeployqt --release AurebeshTranslator.exe
 
-    - cd ..\Tests\Test
+    - cd ..\..\..\Tests\Test
     # we need to modify that to make it running on AppVeyor
     - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" Test.pro
     - "echo #define RELEASE \"AppVeyor\" > release.h"
