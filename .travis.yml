@@ -1,7 +1,5 @@
 language: cpp
 
-compiler: gcc
-
 before_install:
     - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
     - sudo apt-add-repository -y ppa:beineri/opt-qt561
@@ -11,4 +9,5 @@ before_install:
 script:
     - qmake -project
     - qmake AurebeshTranslator/AurebeshTranslator.pro
+    - cd AurebeshTranslator
     - make
