@@ -9,5 +9,7 @@ before_install:
 script:
     - qmake -project
     - qmake AurebeshTranslator/AurebeshTranslator.pro
+    - ls
     - cd AurebeshTranslator
+    - ls
     - make
