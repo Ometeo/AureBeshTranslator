@@ -22,7 +22,7 @@ build_script:
     - cd ..\%RELEASE_PATH%
     # fetching dependencies of QT app
     # http://doc.qt.io/qt-5/windows-deployment.html
-    - windeployqt --release QOwnNotes.exe
+    - windeployqt --release AurebeshTranslator.exe
 
     - cd ..\Tests\Test
     # we need to modify that to make it running on AppVeyor
