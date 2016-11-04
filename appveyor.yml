@@ -19,6 +19,7 @@ build_script:
     - mingw32-make
     - md ..\%RELEASE_PATH%
     - copy release\AurebeshTranslator.exe ..\%RELEASE_PATH%
+    - dir ..\appveyor
 
     - cd ..\Tests\Test
     # we need to modify that to make it running on AppVeyor
