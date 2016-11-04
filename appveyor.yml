@@ -47,7 +47,7 @@ build_script:
     - copy "C:\projects\aurebeshtranslator\appveyor\release\libstdc++-6.dll" . /y
     - dir
  
-    -  .\Test.exe -xunitxml
+    -  tests.xml < .\Test.exe -xunitxml
 
 on_finish:
   - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
