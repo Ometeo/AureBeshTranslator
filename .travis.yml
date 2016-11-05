@@ -17,3 +17,8 @@ script:
     - qmake
     - make
     -  ./Test
+
+notifications:
+    email:
+        on_success: change
+        on_failure: change
