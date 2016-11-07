@@ -9,7 +9,8 @@ QT       += widgets testlib
 
 TARGET = AurebeshProjectTest
 CONFIG   += console
-CONFIG   -= app_bundle
+win32
+{ CONFIG -= debug_and_release }
 
 TEMPLATE = app
 
@@ -17,4 +18,4 @@ TEMPLATE = app
 SOURCES += \
     AurebeshProjectTest.cpp
 
-LIBS += -L../AurebeshTranslator -lAurebeshTranslator
+LIBS += -L../AurebeshLib -laurebeshLib

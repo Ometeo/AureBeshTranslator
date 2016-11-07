@@ -1,10 +1,12 @@
 TEMPLATE = subdirs
 CONFIG+=ordered
 SUBDIRS = \
+    AurebeshLib \
     AurebeshTranslator \
-    Test
+    Tests
 
-Test.depends = AurebeshTranslator
+Tests.depends = AurebeshLib
+AurebeshTranslator.depends = AurebeshLib
 
 OTHER_FILES += \
     defaults.pri

@@ -1,6 +1,6 @@
 #include <QString>
 #include <QtTest>
-#include <../../AurebeshTranslator/mainwindow.h>
+#include <mainWindow.h>
 
 class TestTest : public QObject
 {
@@ -36,4 +36,4 @@ void TestTest::testInit()
 
 QTEST_APPLESS_MAIN(TestTest)
 
-#include "tst_testtest.moc"
+#include "AurebeshProjectTest.moc"
