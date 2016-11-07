@@ -39,7 +39,7 @@ build_script:
     #- mingw32-make
     #- dir
     #- cd release
-    cd .\Tests\release
+    - cd .\Tests\release
     - windeployqt --release Test.exe
     - copy C:\projects\aurebeshtranslator\appveyor\release\libwinpthread-1.dll . /y
     # this dll didn't work when released by windeployqt
