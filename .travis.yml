@@ -10,6 +10,7 @@ script:
     - qmake -project
     #- cd AurebeshTranslator
     #- qmake AurebeshTranslator.pro
+    - qmake AurebeshTranslatorProject.pro
     - make
     #- cd ..
     - cd Tests
