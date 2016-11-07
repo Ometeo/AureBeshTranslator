@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent)
     grid->addWidget(aurebesh, 1, 1);
 
     setLayout(grid);
+
+    this->
 }
 
 MainWindow::~MainWindow()

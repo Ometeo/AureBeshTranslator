@@ -3,15 +3,18 @@
 # Project created by QtCreator 2016-11-04T19:45:46
 #
 #-------------------------------------------------
+include(../defaults.pri)
 
 QT       += widgets testlib
 
-TARGET = tst_testtest
+TARGET = AurebeshProjectTest
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
 
 
-SOURCES += tst_testtest.cpp
-DEFINES += SRCDIR=\\\"$$PWD/\\\"
+SOURCES += \
+    AurebeshProjectTest.cpp
+
+LIBS += -L../AurebeshTranslator -lAurebeshTranslator
