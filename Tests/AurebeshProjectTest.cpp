@@ -25,13 +25,16 @@ void TestTest::testCase1()
 
 void TestTest::testInit()
 {
-     QVERIFY2(false, "Failure");
-//    MainWindow window;
-//    window.initWindow("Title window");
+    int zero = 0;
 
-//    QCOMPARE(600, window.size().height());
-//    QCOMPARE(800,  window.size().width());
-//    QCOMPARE(QString("Title window"), window.windowTitle());
+    char* arg[] = { nullptr };
+    QApplication a(zero, arg);
+     MainWindow window;
+    window.initWindow("Title window");
+
+    QCOMPARE(600, window.size().height());
+    QCOMPARE(800,  window.size().width());
+    QCOMPARE(QString("Title window"), window.windowTitle());
 
 }
 
