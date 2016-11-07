@@ -25,7 +25,7 @@ void TestTest::testCase1()
 
 void TestTest::testInit()
 {
-     QVERIFY2(true, "Failure");
+     QVERIFY2(false, "Failure");
 //    MainWindow window;
 //    window.initWindow("Title window");
 
