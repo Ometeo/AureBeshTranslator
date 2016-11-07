@@ -15,7 +15,7 @@ build_script:
     - "echo #define RELEASE \"AppVeyor\" > release.h"
     # setting the build number in the header file
     - "echo #define BUILD %APPVEYOR_BUILD_NUMBER% > build_number.h"
-    - qmake AurebeshTranslator.pro -r -spec win32-g++
+    - qmake AurebeshTranslatorProject.pro -r -spec win32-g++
     - mingw32-make
     - md .\%RELEASE_PATH%
     - copy .\AurebeshTranslator\release\AurebeshTranslator.exe .\%RELEASE_PATH%
