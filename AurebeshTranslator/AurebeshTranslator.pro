@@ -9,8 +9,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-win32
-{ CONFIG -= debug_and_release }
+CONFIG -= debug_and_release
 
 TEMPLATE = app
 TARGET = AurebeshTranslator

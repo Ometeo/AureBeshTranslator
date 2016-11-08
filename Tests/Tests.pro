@@ -9,8 +9,7 @@ QT       += widgets testlib
 
 TARGET = AurebeshProjectTest
 CONFIG   += console
-win32
-{ CONFIG -= debug_and_release }
+CONFIG -= debug_and_release
 
 TEMPLATE = app
 
