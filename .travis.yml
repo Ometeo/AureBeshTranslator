@@ -12,7 +12,6 @@ script:
     #- qmake AurebeshTranslator.pro
     - qmake AurebeshTranslatorProject.pro
     - ls
-    - more Makefile
     - make
     #- cd ..
     #- cd Tests
