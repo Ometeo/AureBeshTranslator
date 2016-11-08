@@ -5,7 +5,9 @@
 #-------------------------------------------------
 include(../defaults.pri)
 
-QT       += widgets testlib
+QT       += core testlib
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = AurebeshProjectTest
 CONFIG   += console
