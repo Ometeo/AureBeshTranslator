@@ -12,9 +12,9 @@ script:
     - qmake AurebeshLib.pro
     - make
     - ls
-    - cd ../AurebeshTranslator
-    - qmake AurebeshTranslator.pro
-    - make
+    #- cd ../AurebeshTranslator
+    #- qmake AurebeshTranslator.pro
+    #- make
     - ls
     - cd ../Tests
     - ls
