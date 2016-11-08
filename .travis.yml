@@ -11,12 +11,14 @@ script:
     - cd AurebeshLib
     - qmake AurebeshLib.pro
     - make
+    - ls
     - cd ../AurebeshTranslator
     - qmake AurebeshTranslator.pro
     - make
+    - ls
     - cd ..
     - cd Tests
-    #- qmake -project "QT += testlib"
+    - qmake -project "QT += testlib"
     - qmake Tests.pro
     - make
     -  ./AurebeshProjectTest
