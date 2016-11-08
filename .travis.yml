@@ -17,6 +17,7 @@ script:
     - make
     - ls
     - cd ../Tests
+    - ls
     - qmake Tests.pro
     - make
     -  ./AurebeshProjectTest
