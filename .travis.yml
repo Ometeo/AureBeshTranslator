@@ -11,17 +11,15 @@ script:
     - cd AurebeshLib
     - qmake AurebeshLib.pro
     - make
-    - ls
-    #- cd ../AurebeshTranslator
-    #- qmake AurebeshTranslator.pro
-    #- make
-    - ls
-    - cd ../Tests
-    - ls
-    - qmake -project "QT += testlib"
-    - qmake Tests.pro
+    - cd ../AurebeshTranslator
+    - qmake AurebeshTranslator.pro
     - make
-    -  ./AurebeshProjectTest
+    #- cd ../Tests
+    #- ls
+    #- qmake -project "QT += testlib"
+    #- qmake Tests.pro
+    #- make
+    #-  ./AurebeshProjectTest
 
 notifications:
     email:
