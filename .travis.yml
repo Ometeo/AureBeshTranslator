@@ -17,7 +17,7 @@ script:
     - cd ..
     - cd Tests
     - qmake -project "QT += testlib"
-    - qmake
+    - qmake Tests
     - make
     -  ./AurebeshProjectTest
 
