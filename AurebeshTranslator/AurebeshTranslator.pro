@@ -17,3 +17,6 @@ TARGET = AurebeshTranslator
 SOURCES += main.cpp
 
 LIBS += -L../AurebeshLib -laurebeshLib
+
+RESOURCES += \
+    resource.qrc

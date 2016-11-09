@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Font">
+        <file>Fonts/aurebesh/Aurebesh.ttf</file>
+        <file>Fonts/Aurek-Besh.ttf</file>
+    </qresource>
+</RCC>

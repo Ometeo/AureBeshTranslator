@@ -2,6 +2,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QFontDatabase>
 
 
 
@@ -22,6 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLabel *aurebeshLabel = new QLabel(this);
     aurebeshLabel->setText("AureBesh alphabet");
+
+    int id = QFontDatabase::addApplicationFont(":/font/Aurek-Besh.ttf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    this->aurebesh->setFontFamily(family);
 
     grid->addWidget(latinLabel, 0, 0);
     grid->addWidget(aurebeshLabel, 0, 1);
@@ -50,6 +55,9 @@ void MainWindow::initWindow(const QString title)
 {
     this->resize(800, 600);
     this->setWindowTitle(title);
+
+
+
 }
 
 void MainWindow::readData()

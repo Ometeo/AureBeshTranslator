@@ -13,3 +13,5 @@ TARGET = aurebeshLib
 
 SOURCES += mainwindow.cpp
 HEADERS += mainwindow.h
+
+RESOURCES += libresource.qrc
