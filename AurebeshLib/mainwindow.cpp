@@ -9,24 +9,30 @@
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
+    this->setStyleSheet("QWidget { background-color : #212121; color : white; }");
+
     QGridLayout *grid = new QGridLayout(this);
     grid->setSpacing(10);
 
-    this->latin = new QTextEdit(this);
+    this->latin = new QTextEdit("Hello world", this);
     this->aurebesh = new QTextEdit(this);
 
-    connect(latin, &QTextEdit::textChanged, this, &MainWindow::readData);
+
 
     QLabel *latinLabel = new QLabel(this);
-    latinLabel->setText("Latin alphabet");
+    latinLabel->setText("LATIN ALPHABET");
 
 
     QLabel *aurebeshLabel = new QLabel(this);
-    aurebeshLabel->setText("AureBesh alphabet");
+    aurebeshLabel->setText("AUREBESH ALPHABET");
 
     int id = QFontDatabase::addApplicationFont(":/font/Aurek-Besh.ttf");
     QString family = QFontDatabase::applicationFontFamilies(id).at(0);
     this->aurebesh->setFontFamily(family);
+    this->aurebesh->setText("Hello World");
+
+    connect(latin, &QTextEdit::textChanged, this, &MainWindow::readData);
+    connect(aurebesh, &QTextEdit::textChanged, this, &MainWindow::readDataAurebesh);
 
     grid->addWidget(latinLabel, 0, 0);
     grid->addWidget(aurebeshLabel, 0, 1);
@@ -53,14 +59,20 @@ QTextEdit *MainWindow::getAurebesh() const
 
 void MainWindow::initWindow(const QString title)
 {
-    this->resize(800, 600);
+    this->resize(1200, 800);
     this->setWindowTitle(title);
-
-
-
 }
 
 void MainWindow::readData()
 {
+    this->aurebesh->blockSignals(true);
     this->aurebesh->setText(this->latin->toPlainText());
+    this->aurebesh->blockSignals(false);
+}
+
+void MainWindow::readDataAurebesh()
+{
+    this->latin->blockSignals(true);
+    this->latin->setText(this->aurebesh->toPlainText());
+    this->latin->blockSignals(false);
 }

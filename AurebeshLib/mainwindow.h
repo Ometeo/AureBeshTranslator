@@ -25,6 +25,7 @@ private:
     QTextEdit *aurebesh;
 
     void readData();
+    void readDataAurebesh();
 
 };
 
