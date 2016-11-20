@@ -32,13 +32,13 @@ void TestTest::testMainWindow()
      MainWindow window;
     window.initWindow("Title window");
 
-    QTest::keyClicks(window.getLatin(), "hello world");
+    QTest::keyClicks(window.getLatin(), "!");
 
-    QCOMPARE(600, window.size().height());
-    QCOMPARE(800,  window.size().width());
+    QCOMPARE(800, window.size().height());
+    QCOMPARE(1200,  window.size().width());
     QCOMPARE(QString("Title window"), window.windowTitle());
-    QCOMPARE(window.getLatin()->toPlainText(), QString("hello world"));
-    QCOMPARE(window.getAurebesh()->toPlainText(), QString("hello world"));
+    QCOMPARE(window.getLatin()->toPlainText(), QString("!Hello world"));
+    QCOMPARE(window.getAurebesh()->toPlainText(), QString("!Hello world"));
 
 }
 

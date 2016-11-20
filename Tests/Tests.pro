@@ -19,3 +19,6 @@ TARGET = AurebeshProjectTest
 SOURCES += AurebeshProjectTest.cpp
 
 LIBS += -L../AurebeshLib -laurebeshLib
+
+RESOURCES += \
+    resource.qrc
