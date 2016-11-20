@@ -8,15 +8,19 @@ before_install:
   
 script:
     - qmake -project
-    - cd AurebeshTranslator
+    - cd AurebeshLib
+    - qmake AurebeshLib.pro
+    - make
+    - cd ../AurebeshTranslator
     - qmake AurebeshTranslator.pro
     - make
-    - cd ..
-    - cd Tests/Test
-    - qmake -project "QT += testlib"
-    - qmake
-    - make
-    -  ./Test
+    #- cd ../Tests
+    #- ls
+    #- qmake -project "QT += testlib"
+    #- qmake Tests.pro
+    #- make
+    #-  ./AurebeshProjectTest
+
 
 notifications:
     email:

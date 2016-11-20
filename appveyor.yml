@@ -8,18 +8,17 @@ install:
   - set RELEASE_PATH=appveyor\release
 
 build_script:
-    - cd .\AurebeshTranslator
-    - dir
+    #- cd .\AurebeshTranslator
     # we need to modify that to make it running on AppVeyor
-    - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" AurebeshTranslator.pro
+    - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" AurebeshTranslatorProject.pro
     - "echo #define RELEASE \"AppVeyor\" > release.h"
     # setting the build number in the header file
     - "echo #define BUILD %APPVEYOR_BUILD_NUMBER% > build_number.h"
-    - qmake AurebeshTranslator.pro -r -spec win32-g++
+    - qmake AurebeshTranslatorProject.pro -r -spec win32-g++
     - mingw32-make
-    - md ..\%RELEASE_PATH%
-    - copy release\AurebeshTranslator.exe ..\%RELEASE_PATH%
-    - cd ..\%RELEASE_PATH%
+    - md .\%RELEASE_PATH%
+    - copy .\AurebeshTranslator\AurebeshTranslator.exe .\%RELEASE_PATH%
+    - cd .\%RELEASE_PATH%
     # fetching dependencies of QT app
     # http://doc.qt.io/qt-5/windows-deployment.html
     - windeployqt --release AurebeshTranslator.exe
@@ -30,16 +29,18 @@ build_script:
     # search for it in the mingw* folder of your local installation of Qt
     - copy "..\libstdc++-6.dll" . /y
 
-    - cd ..\..\Tests\Test
+    #- cd ..\..\Tests\Test
     # we need to modify that to make it running on AppVeyor
-    - sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" Test.pro
-    - "echo #define RELEASE \"AppVeyor\" > release.h"
-    - qmake -project "QT += testlib"
-    - qmake Test.pro
-    - mingw32-make
+    #- sed -i "s/CONFIG += c++11/QMAKE_CXXFLAGS += -std=gnu++0x/g" Test.pro
+    #- "echo #define RELEASE \"AppVeyor\" > release.h"
+    #- qmake -project "QT += testlib"
+    #- qmake Test.pro
+    #- mingw32-make
+    #- dir
+    #- cd release
+    - cd ..\..\Tests
     - dir
-    - cd release
-    - windeployqt --release Test.exe
+    - windeployqt --release AurebeshProjectTest.exe
     - copy C:\projects\aurebeshtranslator\appveyor\release\libwinpthread-1.dll . /y
     # this dll didn't work when released by windeployqt
     # important: this dll needs to be updated when a new version of Qt is used!
@@ -47,7 +48,7 @@ build_script:
     - copy "C:\projects\aurebeshtranslator\appveyor\release\libstdc++-6.dll" . /y
     - dir
  
-    - .\Test.exe -xunitxml > tests.xml
+    - .\AurebeshProjectTest.exe -xunitxml > tests.xml
 
 on_finish:
   - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))

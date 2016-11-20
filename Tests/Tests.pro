@@ -1,20 +1,22 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-11-04T18:20:07
+# Project created by QtCreator 2016-11-04T19:45:46
 #
 #-------------------------------------------------
 include(../defaults.pri)
 
-QT       += core gui
+QT       += core gui testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
+CONFIG   += console
 CONFIG -= debug_and_release
 
 TEMPLATE = app
-TARGET = AurebeshTranslator
+TARGET = AurebeshProjectTest
 
-SOURCES += main.cpp
+SOURCES += AurebeshProjectTest.cpp
 
 LIBS += -L../AurebeshLib -laurebeshLib
 
