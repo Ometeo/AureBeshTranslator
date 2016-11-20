@@ -31,8 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->aurebesh->setFontFamily(family);
     this->aurebesh->setText("Hello World");
 
-    connect(latin, &QTextEdit::textChanged, this, &MainWindow::readData);
-    connect(aurebesh, &QTextEdit::textChanged, this, &MainWindow::readDataAurebesh);
+    connect(latin, SIGNAL(textChanged()), this, SLOT(readData()));
+    connect(aurebesh, SIGNAL(textChanged()), this, SLOT(readDataAurebesh()));
 
     grid->addWidget(latinLabel, 0, 0);
     grid->addWidget(aurebeshLabel, 0, 1);

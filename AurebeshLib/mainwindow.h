@@ -24,6 +24,7 @@ private:
     QTextEdit *latin;
     QTextEdit *aurebesh;
 
+public slots:
     void readData();
     void readDataAurebesh();
 
